@@ -8,7 +8,7 @@ class Set
 public:
     void input()
     {
-        cout << "inputting values of m & n" << endl;
+        cout << "input values of m & n : " << endl;
         cin >> m >> n;
     }
     int largest()
@@ -18,7 +18,6 @@ public:
         else
             return n;
     }
-
     void display()
     {
         cout << "Largest is " << largest() << endl; 

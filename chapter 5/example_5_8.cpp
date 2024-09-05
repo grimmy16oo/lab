@@ -1,49 +1,49 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class test1;
+class ClassB; // Forward declaration
 
-class test2
+class ClassA
 {
     int a;
 
 public:
-    void setvalue(int x)
+    void setValue(int x)
     {
         a = x;
     }
-    friend void max(test1, test2);
+    friend void findMax(ClassA, ClassB);
 };
 
-class test1
+class ClassB
 {
     int b;
 
 public:
-    void setvalue(int y)
+    void setValue(int y)
     {
         b = y;
     }
-    friend void max(test1, test2);
+    friend void findMax(ClassA, ClassB);
 };
 
-void max(test1 me, test2 you)
+void findMax(ClassA A, ClassB B)    //has access to their private members a and b as its a friend function
 {
-    if (me.b >= you.a)
-        cout << me.b << endl;
+    if (A.a >= B.b)
+        cout << "Maximum value: " << A.a << endl;
     else
-        cout << you.a << endl;
+        cout << "Maximum value: " << B.b << endl;
 }
 
 int main()
 {
-    test2 obj;
-    obj.setvalue(10);
+    ClassA A;
+    A.setValue(10);
 
-    test1 objj;
-    objj.setvalue(20);
+    ClassB B;
+    B.setValue(20);
 
-    max(objj,obj);
+    findMax(A, B);
 
     return 0;
 }

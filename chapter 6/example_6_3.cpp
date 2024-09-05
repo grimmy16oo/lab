@@ -5,7 +5,7 @@ class fixedDeposit
 {
     long int P;
     int years;
-    float rate, rValue;
+    float rate, returnVal;
 
 public:
     fixedDeposit() {}                                // Default constructor
@@ -20,10 +20,10 @@ fixedDeposit::fixedDeposit(long int p, int y, float r)
     years = y;
     rate = r;
 
-    rValue = P;
+    returnVal = P;
     for (int i = 0; i < years; i++)
     {
-        rValue *= (1.0 + rate);
+        returnVal *= (1.0 + rate);
     }
 }
 
@@ -33,17 +33,17 @@ fixedDeposit::fixedDeposit(long int p, int y, int r)
     years = y;
     rate = float(r) / 100; // Convert integer rate to float
 
-    rValue = P;
+    returnVal = P;
     for (int i = 0; i < years; i++)
     {
-        rValue *= (1.0 + rate);
+        returnVal *= (1.0 + rate);
     }
 }
 
 void fixedDeposit::display()
 {
     cout << "Principal value: " << P << endl;
-    cout << "Return value: " << rValue << endl;
+    cout << "Return value: " << returnVal << endl;
 }
 
 int main()
@@ -53,17 +53,17 @@ int main()
     int y, R;
     float r;
 
-    cout << "Enter principal, years, and rate (as integer percent): " << endl;
+    cout << "Enter principal, years, and rate as float(%): " << endl;
     cin >> p >> y >> R;
     f1 = fixedDeposit(p, y, R); 
 
-    cout << "Enter principal, years, and rate (as decimal): " << endl;
+    cout << "Enter principal, years, and rate as int: " << endl;
     cin >> p >> y >> r;
     f2 = fixedDeposit(p, y, r); 
 
     cout << "Enter principal and years: " << endl;
     cin >> p >> y;
-    f3 = fixedDeposit(p, y); 
+    f3 = fixedDeposit(p, y);        //will call constructor with default parameter for (r)
 
     cout << "\nDeposit 1" << endl;
     f1.display();

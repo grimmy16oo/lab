@@ -21,6 +21,7 @@ public:
 
         cout << "Enter item cost: ";
         cin >> itemPrice[count];
+
         count++;
     }
 
@@ -71,6 +72,7 @@ int main()
         cout << "3 : Remove an item" << endl;
         cout << "4 : Display all items" << endl;
         cout << "5 : Quit" << endl;
+        cout<<"\n";
 
         cin >> x;
 

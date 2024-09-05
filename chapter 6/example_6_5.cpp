@@ -12,11 +12,11 @@ public:
         name[0] = '\0';  // initialize with an empty string
     }
     
-    str(const char *s)  // dynamic constructor
+    str(const char *s)  // Parameterized constructor
     {
         l = strlen(s);
         name = new char[l + 1];
-        strcpy(name, s);
+        strcpy(name, s);       //Copies the content of s to name 
     }
 
     ~str()  // destructor to release allocated memory
@@ -24,7 +24,7 @@ public:
         delete[] name;
     }
 
-    void display() const
+    void display()
     {
         cout << name << endl;
     }
@@ -34,13 +34,13 @@ public:
 
 void str::join(const str &a, const str &b)
 {
-    l = a.l + b.l;
+    l = a.l +  b.l;
     delete[] name;
 
     name = new char[l + 1];
 
-    strcpy(name, a.name);
-    strcat(name, b.name);
+    strcpy(name, a.name);           //Copies the string from a to name
+    strcat(name, b.name);        //Appends the string from b to name.
 }
 
 int main()

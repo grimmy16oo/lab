@@ -11,7 +11,7 @@ public:
         a = 25;
         b = 40;
     }
-    friend float mean(sample s);
+    friend float mean(sample s);    //use of friend function to calculate the mean of two private member variables in a class
 };
 float mean(sample s)
 {

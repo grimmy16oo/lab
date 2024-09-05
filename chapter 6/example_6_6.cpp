@@ -12,7 +12,7 @@ public:
         cout << "Number of objects created: " << cnt << endl;
     }
 
-    ~alpha()
+    ~alpha()    //destructor is called automatically when an object goes out of scope or is explicitly deleted.
     {
         cout << "Number of objects destroyed: " << cnt << endl;
         cnt--;
