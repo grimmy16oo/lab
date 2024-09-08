@@ -1,40 +1,54 @@
-#include<bits/stdc++.h>
+//CONSTRUCTING MATRIX OBJECTS
+#include <bits/stdc++.h>
 using namespace std;
-
-int cnt = 0; 
-
-class alpha
+class matrix
 {
+    int **ptr;
+    int row, col;
+
 public:
-    alpha()
+    matrix(int x, int y)
     {
-        cnt++;
-        cout << "Number of objects created: " << cnt << endl;
+        row = x;
+        col = y;
+
+        ptr = new int *[row]; // ptr = new int*[row]; creates an array of pointers, each representing a row
+        for (int i = 0; i < row; i++)
+        {
+            ptr[i] = new int[col]; // ptr[i] = new int[col]; creates a new array of columns for each row.
+        }
     }
 
-    ~alpha()    //destructor is called automatically when an object goes out of scope or is explicitly deleted.
+    void getElement(int i, int j, int val)
     {
-        cout << "Number of objects destroyed: " << cnt << endl;
-        cnt--;
-    } 
+        ptr[i][j] = val;
+    }
+    int &putElement(int i, int j)
+    {
+        return ptr[i][j];
+    }
 };
 
 int main()
 {
-    cout << "Enter main" << endl;
-    alpha a1, a2, a3, a4;
+    int m, n, val;
+    cout << "enter size of matrix : ";
+    cin >> m >> n;
 
+    matrix A(m, n);
+
+    cout << "enter matrix element row by row" << endl;
+
+    for (int i = 0; i < m; i++)
     {
-        cout << "Enter block 1" << endl;
-        alpha a5;
+        for (int j = 0; j < n; j++)
+        {
+            cin >> val;
+            A.getElement(i, j, val);
+        }
     }
+    cout << endl;
+    cout << A.putElement(1, 2);
 
-    {
-        cout << "Enter block 2" << endl;
-        alpha a6;
-    }
-
-    cout << "Re-enter main" << endl;
-    
     return 0;
 }

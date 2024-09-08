@@ -1,24 +1,25 @@
+//COPY CONSTRUCTOR
 #include<bits/stdc++.h>
 using namespace std;
 
 class code
 {
-    int a;
+    int ID;
 
 public:
     code(){}
     code(int x)
     {
-        a = x;
+        ID = x;
     }
     code(code &copy)        //copy constructor initializes a with the value of a from another object (copy).
     {
-        a = copy.a;
+        ID = copy.ID;
     }
 
     void display()
     {
-        cout<<a<<endl;
+        cout<<ID<<endl;
     }
 };
 
